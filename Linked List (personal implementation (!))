@@ -1,0 +1,103 @@
+
+/**
+ * This is a linked list class.
+ * 
+ *
+ * @author Kirti Vardhan
+ * @version 1.00
+ */
+
+public class LinkedList
+{
+   public class Node
+   {
+       private String text; 
+       private Node next; 
+       
+       public Node(String text)
+       {
+           this.text = text;
+           
+       }
+   }
+   private Node head; 
+   
+   public LinkedList()
+   {
+       for(int i = 0; i < 50 ; i++)
+       {
+           addNode("Text" + i); 
+       }
+       
+   }
+   
+   public void addNode(String text)
+   {
+       if( head == null)
+       {
+           head = new Node(text); 
+       }
+       else
+       {
+           Node LastNode = traversal(); 
+           LastNode.next = new Node(text);
+       }
+       
+   }
+   
+   public void PrintAll()
+   {
+       if( head == null )
+       {
+           System.out.println("This linked list is empty"); 
+       }
+       else
+       {
+           Node iterator = head; 
+           while(iterator.next != null)
+           { 
+               iterator = iterator.next; 
+               System.out.println(iterator.text);
+           }
+            
+       }
+   }
+   
+   public Node traversal()
+   {
+       if( head != null)
+       {
+           Node iterator = head; 
+           while(iterator.next != null)
+           {
+               iterator = iterator.next; 
+           }
+           return iterator; 
+       }
+       else
+       {
+           System.out.println("Linked List is empty"); 
+           return null; 
+       }
+   }
+   
+   public void getNode(int index)
+   {
+      Integer found = 0; 
+      Node iterator = head; 
+      if(head != null)
+      {
+          for(int count = 0; count <= index; count++)
+          {
+              iterator = iterator.next;
+              if( count == index)
+              {
+                  found = 1; 
+              }
+          }
+      }
+      else
+      {
+      }
+   }
+}
