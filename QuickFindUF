@@ -1,0 +1,45 @@
+
+public class QuickFindUF 
+{
+    // id: An array that holds objects
+    private int[] id;
+
+    public QuickFindUF(int N)
+    {
+        // Initiate objects id equal to their position in array
+        id = new int[N];
+        for(int i = 0; i < N; i++)
+        {
+            id[i] = i;
+        }
+    }
+
+    // The connected method, simply checks if the ID are equal.
+    public boolean connected(int p, int q) 
+    {
+        return id[p] == id[q]; 
+    }
+    
+    public void union(int p, int q)
+	{
+	   int pid = id[p];
+	   for(int i = 0; i < id.length ; i++)
+	   {
+	     if(id[i] == pid)
+	     {
+	         id[i] = id[q]; 
+	     } 
+	   }
+	   printId(); 
+	}
+
+    public void printId()
+    {
+        System.out.println();
+        for(int i = 0; i < id.length ; i++)
+        {
+            System.out.println(id[i]); 
+        }
+    }
+
+}
